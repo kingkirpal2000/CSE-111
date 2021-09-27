@@ -1,0 +1,1 @@
+SELECT strftime('%Y-%m', l_receiptdate) , COUNT(l_linenumber) FROM lineitem, customer, orders WHERE l_orderkey = o_orderkey AND o_custkey = c_custkey AND strftime('%Y', l_receiptdate) = '1993' AND c_custkey = 000000010 GROUP BY strftime('%m', l_receiptdate);

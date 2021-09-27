@@ -1,0 +1,1 @@
+SELECT c_mktsegment, MIN(c_acctbal), MAX(c_acctbal), SUM(c_acctbal) FROM Customer GROUP BY c_mktsegment

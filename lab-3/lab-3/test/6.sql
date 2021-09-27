@@ -1,0 +1,1 @@
+SELECT DISTINCT n_name FROM customer, orders, nation WHERE c_custkey = o_custkey AND o_orderdate BETWEEN '1996-09-10' AND '1996-09-12' AND c_nationkey = n_nationkey GROUP BY n_name;

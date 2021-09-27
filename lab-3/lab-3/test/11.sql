@@ -1,0 +1,1 @@
+SELECT COUNT(DISTINCT c_custkey) FROM customer, lineitem, orders WHERE l_orderkey = o_orderkey AND o_custkey = c_custkey AND l_discount >= '0.10';

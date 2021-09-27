@@ -1,0 +1,1 @@
+SELECT strftime('%Y', o_orderdate), count(l_partkey) FROM orders, lineitem, supplier, nation WHERE l_suppkey = s_suppkey AND s_nationkey = n_nationkey AND n_name = 'CANADA' AND o_orderpriority = '3-MEDIUM' AND l_orderkey = o_orderkey GROUP BY strftime('%Y', o_orderdate);
