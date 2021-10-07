@@ -3,7 +3,7 @@ Query 2: FAIL
 Query 3: PASS
 Query 4: PASS
 Query 5: FAIL
-Query 6: FAIL
+Query 6: PASS
 Query 7: FAIL
 Query 8: FAIL
 Query 9: FAIL
@@ -13,4 +13,4 @@ Query 12: FAIL
 Query 13: FAIL
 Query 14: FAIL
 Query 15: FAIL
-Total score: 3
+Total score: 4
