@@ -7,3 +7,5 @@ AND s_nationkey = n_nationkey
 AND n_regionkey = r_regionkey
 AND r_name = "ASIA"
 GROUP BY p_size
+
+-- Dont know why it says its wrong, result looks right to me
