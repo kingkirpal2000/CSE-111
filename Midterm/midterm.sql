@@ -99,25 +99,45 @@ SELECT "4----------";
 SELECT "5----------";
 .headers on
 --put your code here
-SELECT Classes.country, COUNT(Outcomes.result)
+SELECT Classes.country as cntry, COUNT(Outcomes.result) as cnt
 FROM Outcomes, Classes, Ships
 WHERE Classes.class = Ships.class
 AND Ships.name = Outcomes.ship
 AND Outcomes.result = "damaged"
-GROUP BY Classes.country
-;
+GROUP BY Classes.country;
 .headers off
 
 SELECT "6----------";
 .headers on
 --put your code here
-;
+SELECT sq1.cntry, MIN(sq1.cnt)
+FROM (
+    SELECT Classes.country as cntry, COUNT(Outcomes.result) as cnt
+    FROM Outcomes, Classes, Ships
+    WHERE Classes.class = Ships.class
+    AND Ships.name = Outcomes.ship
+    AND Outcomes.result != "damaged"
+    GROUP BY Classes.country
+) sq1;
 .headers off
 
 SELECT "7----------";
 .headers on
 --put your code here
-;
+DELETE FROM Outcomes
+WHERE ship IN(
+    SELECT ship
+    FROM Outcomes, Classes, Ships
+    WHERE Outcomes.ship = Ships.name
+    AND Ships.class = Classes.class
+    AND Outcomes.battle = 'Denmark Strait'
+    GROUP BY Outcomes.ship
+    HAVING Classes.country = 'Japan'
+) AND battle IN(
+    SELECT battle
+    FROM Outcomes
+    WHERE Outcomes.battle = 'Denmark Strait'
+);
 .headers off
 
 SELECT "8----------";
